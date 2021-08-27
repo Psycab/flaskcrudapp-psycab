@@ -34,5 +34,3 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
