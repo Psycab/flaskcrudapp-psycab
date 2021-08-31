@@ -1,9 +1,11 @@
+import os
 from flask import Flask, render_template, url_for,request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql+pymysql://"+ os.environ['DB_USER'] + ":" + os.environ['DB_PASSWORD']+ "@" + os.environ['DB_HOST'] + ":3306/" + os.environ['DB_NAME'])
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 
 
